@@ -8,7 +8,7 @@
   var IGNORED_FILES_CONFIG_PATH = path.join(process.cwd(), '.chcpignore');
   var DEFAULT_WWW_FOLDER = path.join(process.cwd(), 'www');
   var DEFAULT_CLI_CONFIG = path.join(process.cwd(), 'cordova-hcp.json');
-  var DEFAULT_IGNORE_LIST = ['.DS_Store', 'node_modules/*', 'node_modules\\*', 'chcp.json', 'chcp.manifest', '.chcp*', '.gitignore', '.gitkeep', '.git', 'package.json'];
+  var DEFAULT_IGNORE_LIST = ['.DS_Store', 'node_modules/*', 'node_modules\\*', 'chcp.json', 'chcp.manifest', 'chcp.signature', '.chcp*', '.gitignore', '.gitkeep', '.git', 'package.json'];
 
   module.exports = {
     context: context
@@ -23,6 +23,7 @@
     this.defaultConfig = DEFAULT_CLI_CONFIG;
     this.sourceDirectory = getSourceDirectory(argv);
     this.manifestFilePath = path.join(this.sourceDirectory, 'chcp.manifest');
+    this.manifestSignatureFilePath = path.join(this.sourceDirectory, 'chcp.signature');
     this.projectsConfigFilePath = path.join(this.sourceDirectory, 'chcp.json');
     this.ignoredFiles = getIgnoredFiles();
   };
